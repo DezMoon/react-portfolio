@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // Images
 import Image from "../assets/avatar.png";
 // Icons
@@ -15,8 +15,11 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 // Variants
 import { fadeIn } from "../variants";
+import Modal from "./Modal";
 
 const Banner = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <section
       className="min-h-[85vh] lg:min-h-[78vh] flex items-center"
@@ -79,8 +82,9 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="flex max-w-max gap-x-6 items-center mb-12 mx-auto lg:mx-0"
             >
-              <button className="btn btn-lg">Contact me</button>
-
+              <button className="btn btn-lg" onClick={() => setShowModal(true)}>
+                Contact me
+              </button>
               <a
                 href="/Desmond_Moonga_Resume.pdf"
                 download
@@ -110,11 +114,11 @@ const Banner = () => {
                 <FaLinkedin />
               </a>
 
-              <a href="https://mailto:moongachiku@gmail.com">
+              <a href="mailto:moongachiku@gmail.com">
                 <FaEnvelope />
               </a>
 
-              <a href="https://tel:+260965948921">
+              <a href="tel:+260965948921">
                 <FaPhone />
               </a>
             </motion.div>
@@ -131,6 +135,7 @@ const Banner = () => {
           </motion.div>
         </div>
       </div>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
     </section>
   );
 };
