@@ -88,7 +88,14 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        modalContent={{
+          type: "contact",
+        }}
+        type="contact"
+      />
     </section>
   );
 };
